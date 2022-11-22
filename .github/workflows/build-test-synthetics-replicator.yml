@@ -22,8 +22,9 @@ jobs:
         with:
           node-version: 18
       - name: Start app
-        run: npm install
-        run: npm run start &     
+        run: | 
+          npm install
+          npm run start &     
       - name: Run Synthetic tests
         working-directory: ./apps/synthetics-replicator-tests/journeys
         run: | 
