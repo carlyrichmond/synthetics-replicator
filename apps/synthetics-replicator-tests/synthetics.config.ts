@@ -3,7 +3,7 @@ import type { SyntheticsConfig } from '@elastic/synthetics';
 export default env => {
   const config: SyntheticsConfig = {
     params: {
-      url: 'https://synthetics-replicator.netlify.app/',
+      url: 'http://localhost:5173',
     },
     playwrightOptions: {
       ignoreHTTPSErrors: false,
@@ -25,8 +25,8 @@ export default env => {
       space: 'default',
     },
   };
-  if (env === 'development') {
-     config.params = { url: 'http://localhost:5173' }
+  if (env === 'production') {
+     config.params = { url: 'https://synthetics-replicator.netlify.app/' }
   }
   return config;
 };

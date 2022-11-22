@@ -1,4 +1,7 @@
-name: Elastic Synthetics Tests
+name: Elastic Synthetics With Svelte Replicator
+env:
+  NODE_ENV: production
+  SYNTHETICS_API_KEY: ${{ secrets.SYNTHETICS_API_KEY }}
 on:
   push:
     branches: [main, master]
@@ -7,10 +10,21 @@ on:
   schedule:
     - cron: '* 0 * * *'
 jobs:
+  main:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - uses: nrwl/nx-set-shas@v3
+      - run: npm ci
+      - run: npm run build
+      - run: npm start
+      - run: npm run test
   test:
     defaults:
       run:
-        working-directory: ./advanced-examples
+        working-directory: ./apps/synthetics-replicator-tests/journeys
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
