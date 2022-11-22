@@ -10,6 +10,7 @@
   "private": true,
   "dependencies": {
     "@nxext/svelte": "^15.0.1",
+    "@nxext/vite": "^15.0.0",
     "tslib": "^2.3.0"
   },
   "devDependencies": {
