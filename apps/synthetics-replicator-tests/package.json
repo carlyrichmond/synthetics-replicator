@@ -1,0 +1,16 @@
+{
+  "name": "synthetics-replicator-tests",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx @elastic/synthetics journeys",
+    "push": "npx @elastic/synthetics push"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@elastic/synthetics": "^1.0.0-beta.38"
+  }
+}
