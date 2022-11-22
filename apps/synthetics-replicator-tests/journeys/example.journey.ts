@@ -1,10 +1,10 @@
 import { journey, step, monitor, expect } from '@elastic/synthetics';
 
-journey('My Example Journey', ({ page, params }) => {
+journey('Replicator home', ({ page, params }) => {
   // Only relevant for the push command to create
   // monitors in Kibana
   monitor.use({
-    id: 'example-monitor',
+    id: 'synthetics-replicator-monitor',
     schedule: 10,
   });
   step('launch application', async () => {
@@ -13,6 +13,7 @@ journey('My Example Journey', ({ page, params }) => {
 
   step('assert title', async () => {
     const header = await page.locator('h1');
+    expect(await header.textContent()).toContain('Welcome to');
     expect(await header.textContent()).toContain('synthetics-replicator');
   });
 });
