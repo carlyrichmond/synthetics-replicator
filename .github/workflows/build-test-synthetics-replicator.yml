@@ -18,6 +18,7 @@ jobs:
           fetch-depth: 0
       - uses: nrwl/nx-set-shas@v3
       - run: npm ci
+      - run: npm i @sveltejs/vite-plugin-svelte --save-dev
       - run: npm run build
       - run: npm start
       - run: npm run test
