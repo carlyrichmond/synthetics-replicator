@@ -30,6 +30,7 @@ jobs:
           junit_files: '**/junit-*.xml'
           check_name: Elastic Synthetics Tests
   push:
+    needs: test
     defaults:
       run:
         working-directory: ./apps/synthetics-replicator-tests
