@@ -20,7 +20,7 @@ jobs:
         with:
           node-version: 18
       - run: npm install
-      - run: npm start
+      - run: npm start &
       - run: "SYNTHETICS_JUNIT_FILE='junit-synthetics.xml' npx @elastic/synthetics . --reporter=junit"
         working-directory: ./apps/synthetics-replicator-tests/journeys
       - name: Publish Unit Test Results
