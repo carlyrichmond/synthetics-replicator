@@ -11,9 +11,8 @@ on:
     - cron: '* 0 * * *'
 jobs:   
   test:
-    defaults:
-      run:
-        working-directory: ./apps/synthetics-replicator-tests/journeys
+    env:
+      NODE_ENV: development
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -21,7 +20,9 @@ jobs:
         with:
           node-version: 18
       - run: npm install
+      - run: npm start & npm run test
       - run: "SYNTHETICS_JUNIT_FILE='junit-synthetics.xml' npx @elastic/synthetics . --reporter=junit"
+        working-directory: ./apps/synthetics-replicator-tests/journeys
       - name: Publish Unit Test Results
         uses: EnricoMi/publish-unit-test-result-action@v2
         if: always()
