@@ -1,5 +1,5 @@
 <script lang="ts">
-	let src: string = "../public/favicon.png";
+	let src: string = "/favicon.png";
     let count: number = 0;
 
     function addToOrder(): void {
