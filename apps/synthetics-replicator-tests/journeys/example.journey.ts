@@ -16,4 +16,9 @@ journey('Replicator home', ({ page, params }) => {
     expect(await header.textContent()).toContain('Welcome to');
     expect(await header.textContent()).toContain('synthetics-replicator');
   });
+
+  step('assert paragraph', async () => {
+    const paragraph = await page.locator('p');
+    expect(await paragraph.textContent()).toEqual('Can we take your order?');
+  });
 });
