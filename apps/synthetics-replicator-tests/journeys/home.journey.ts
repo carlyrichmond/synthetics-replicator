@@ -22,12 +22,15 @@ journey('Replicator home', ({ page, params }) => {
 
   step('assert order increments', async () => {
     const orderButton = await page.locator('button');
-    let orderCountParagraph = await page.locator('.order-count');
+    const orderCountParagraph = await page.locator('.order-count');
+    const orderTotalParagraph = await page.locator('.order-total');
     
     expect(await orderCountParagraph.textContent()).toEqual('0 items in order');
+    expect(await orderTotalParagraph.textContent()).toEqual('£0.00');
 
     await orderButton.click();
 
     expect(await orderCountParagraph.textContent()).toEqual('1 items in order');
+    expect(await orderTotalParagraph.textContent()).toEqual('£1.50');
   });
 });

@@ -1,5 +1,5 @@
-<script lang="ts">
-	import ReplicatorList from "./ReplicatorList.svelte";
+<script lang='ts'>
+	import ReplicatorList from './ReplicatorList.svelte';
 
 	let name: string = `<strong>Carly</strong>`
 </script>
