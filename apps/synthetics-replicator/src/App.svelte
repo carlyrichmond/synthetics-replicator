@@ -1,10 +1,12 @@
 <script lang="ts">
-	export let name: string;
+	import ReplicatorList from "./ReplicatorList.svelte";
+
+	let name: string = `<strong>Carly</strong>`
 </script>
 
 <main>
-	<h1>Welcome to {name}!</h1>
-	<p>Can we take your order?</p>
+	<h1>Welcome {@html name}!</h1>
+	<ReplicatorList/>
 </main>
 
 <style>

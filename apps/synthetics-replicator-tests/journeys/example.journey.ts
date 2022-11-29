@@ -11,14 +11,23 @@ journey('Replicator home', ({ page, params }) => {
     await page.goto(params.url);
   });
 
-  step('assert title', async () => {
+  step('assert initial page load', async () => {
     const header = await page.locator('h1');
-    expect(await header.textContent()).toContain('Welcome to');
-    expect(await header.textContent()).toContain('synthetics-replicator');
+    expect(await header.textContent()).toContain('Welcome');
+    expect(await header.textContent()).toContain('Carly');
+
+    const paragraph = await page.locator('.order-prompt');
+    expect(await paragraph.textContent()).toEqual('Can we take your order?');
   });
 
-  step('assert paragraph', async () => {
-    const paragraph = await page.locator('p');
-    expect(await paragraph.textContent()).toEqual('Can we take your order?');
+  step('assert order increments', async () => {
+    const orderButton = await page.locator('button');
+    let orderCountParagraph = await page.locator('.order-count');
+    
+    expect(await orderCountParagraph.textContent()).toEqual('0 items in order');
+
+    await orderButton.click();
+
+    expect(await orderCountParagraph.textContent()).toEqual('1 items in order');
   });
 });
