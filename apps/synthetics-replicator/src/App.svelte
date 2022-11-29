@@ -4,7 +4,7 @@
 
 <main>
 	<h1>Welcome to {name}!</h1>
-	<p>Can we take your order?</p>
+	<p>Can we take your order, please?</p>
 </main>
 
 <style>
