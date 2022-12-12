@@ -11,6 +11,9 @@
   "dependencies": {
     "@nxext/svelte": "^15.0.1",
     "@nxext/vite": "^15.0.0",
+    "akar-icons": "^1.9.22",
+    "fontawesome-svelte": "^2.0.1",
+    "iconify-icon": "^1.0.2",
     "tslib": "^2.3.0"
   },
   "devDependencies": {

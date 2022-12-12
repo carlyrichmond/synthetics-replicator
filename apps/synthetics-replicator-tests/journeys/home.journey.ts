@@ -1,4 +1,4 @@
-import { journey, step, monitor, expect } from '@elastic/synthetics';
+import { after, before, journey, step, monitor, expect } from '@elastic/synthetics';
 
 journey('Replicator home', ({ page, params }) => {
   // Only relevant for the push command to create
@@ -7,30 +7,30 @@ journey('Replicator home', ({ page, params }) => {
     id: 'synthetics-replicator-monitor',
     schedule: 10,
   });
-  step('launch application', async () => {
-    await page.goto(params.url);
+
+  before(async () => {
+    await page.goto(params.url);;
+  });
+
+  after(async() => {
+    await page.close();
   });
 
   step('assert initial page load', async () => {
     const header = await page.locator('h1');
-    expect(await header.textContent()).toContain('Welcome');
-    expect(await header.textContent()).toContain('Carly');
+    expect(await header.textContent()).toEqual('Replicatr');
 
-    const paragraph = await page.locator('.order-prompt');
-    expect(await paragraph.textContent()).toEqual('Can we take your order?');
+    const paragraph = await page.locator('data-testid=order-prompt');
+    expect(await paragraph.textContent()).toContain('To seek out new food');
+    expect(await paragraph.textContent()).toContain('To boldly eat');
   });
 
-  step('assert order increments', async () => {
-    const orderButton = await page.locator('button');
-    const orderCountParagraph = await page.locator('.order-count');
-    const orderTotalParagraph = await page.locator('.order-total');
-    
-    expect(await orderCountParagraph.textContent()).toEqual('0 items in order');
-    expect(await orderTotalParagraph.textContent()).toEqual('£0.00');
+  step('assert GitHub navigation', async () => {
+    const gitHubNav = await page.locator('data-testid=github-nav');
+    await gitHubNav.click();
 
-    await orderButton.click();
-
-    expect(await orderCountParagraph.textContent()).toEqual('1 items in order');
-    expect(await orderTotalParagraph.textContent()).toEqual('£1.50');
+    const url = page.url();
+    expect(url).toContain('github.com')
+    expect(url).toContain('synthetics-replicator')
   });
 });
