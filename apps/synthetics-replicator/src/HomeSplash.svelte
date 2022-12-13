@@ -1,12 +1,20 @@
 <script lang='ts'>
+	import { createEventDispatcher } from 'svelte';
+
 	let src: string = '/replicator-splash.jpg';
+
+	const dispatch = createEventDispatcher();
+
+	function onOrderClick() {
+		dispatch('update-order');
+	}
 </script>
 
 <div class='splash'>
 	<p data-testid='order-prompt'>To seek out new food and new cuisines. 
 		<br/> To boldly eat what no one has eaten before!</p>
 		<div class='buttons'>
-			<button class='order-button'>Order Now!</button>
+			<button class='order-button' data-testid='order-button' on:click={onOrderClick}>Order Now!</button>
 			<a href='https://twitter.com/CarlyLRichmond'>
 				<iconify-icon class='twitter-button' data-testid='twitter-nav' icon="mdi:twitter" width="36" height="36"></iconify-icon>
 			</a>

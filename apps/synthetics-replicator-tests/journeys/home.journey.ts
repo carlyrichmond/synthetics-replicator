@@ -25,6 +25,18 @@ journey('Replicator home', ({ page, params }) => {
     expect(await paragraph.textContent()).toContain('To boldly eat');
   });
 
+  step('assert add to cart', async () => {
+    const cartCount = await page.locator('#cart-count-label');
+    expect(await cartCount.textContent()).toEqual('0');
+
+    const orderButton = await page.locator('data-testid=order-button');
+    await orderButton.click();
+    expect(await cartCount.textContent()).toEqual('1');
+
+    await orderButton.click();
+    expect(await cartCount.textContent()).toEqual('2');
+  });
+
   step('assert GitHub navigation', async () => {
     const gitHubNav = await page.locator('data-testid=github-nav');
     await gitHubNav.click();

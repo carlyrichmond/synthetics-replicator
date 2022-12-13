@@ -1,21 +1,25 @@
 <script lang='ts'>
 	import 'iconify-icon';
+	import Cart from './Cart.svelte';
+
 	import HomeSplash from './HomeSplash.svelte';
-	import ReplicatorList from './ReplicatorList.svelte';
 
 	let src: string = '/replicator.png';
-	let splashSrc: string = '/splash.jpeg';
+
+	let currentCartCount: number = 0;
+
+	function updateCart() {
+		currentCartCount+= 1;
+	}
 </script>
 
 <header>
 	<img id='replicator-logo' {src} alt='Star Trek Replicator'/>
 	<h1>Replicatr</h1>
-	<div class='shopping-cart'>
-		<iconify-icon class='cart-icon' icon='ic:round-shopping-basket' width='36' height='36' />
-	</div>
+	<Cart {currentCartCount}/>
 </header>
 <main>
-	<HomeSplash></HomeSplash>
+	<HomeSplash on:update-order={updateCart}></HomeSplash>
 </main>
 
 <style>
@@ -42,18 +46,8 @@
 		font-size: 3em;
 		font-weight: 100;
 		margin: 0;
-		margin-top: -0.25rem;;
+		margin-top: -0.25rem;
 		padding: 0
-	}
-
-	.shopping-cart {
-		margin-left: auto;
-		margin-top: 0.25rem;
-		margin-right: 3rem;
-	}
-
-	.cart-icon {
-		color: #b0b4f5;
 	}
 
 	main {
