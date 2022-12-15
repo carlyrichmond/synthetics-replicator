@@ -6,7 +6,7 @@
 	const dispatch = createEventDispatcher();
 
 	function onOrderClick() {
-		dispatch('update-order');
+		dispatch('place-order');
 	}
 </script>
 

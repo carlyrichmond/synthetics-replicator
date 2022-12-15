@@ -1,25 +1,42 @@
 <script lang='ts'>
+	import { navigate, Link, Router, Route } from 'svelte-routing';
+
 	import 'iconify-icon';
 	import Cart from './Cart.svelte';
 
 	import HomeSplash from './HomeSplash.svelte';
+	import ReplicatorList from './ReplicatorList.svelte';
+
+	export let url = '';
 
 	let src: string = '/replicator.png';
-
 	let currentCartCount: number = 0;
 
 	function updateCart() {
 		currentCartCount+= 1;
 	}
+
+	function placeOrder() {
+		navigate('/order', { replace: true });
+	}
 </script>
 
 <header>
-	<img id='replicator-logo' {src} alt='Star Trek Replicator'/>
-	<h1>Replicatr</h1>
+	<a href='/'>
+		<img id='replicator-logo' {src} alt='Star Trek Replicator'/>
+	</a>
+	<a href='/'>
+		<h1>Replicatr</h1>
+	</a>
 	<Cart {currentCartCount}/>
 </header>
 <main>
-	<HomeSplash on:update-order={updateCart}></HomeSplash>
+	<Router url='{url}'>
+		<Route path='/'>
+			<HomeSplash on:place-order={placeOrder}></HomeSplash>
+		</Route>
+		<Route path='order' component='{ReplicatorList}'/>
+	</Router>
 </main>
 
 <style>
