@@ -5,7 +5,7 @@ journey('Replicator GitHub navigation', ({ page, params }) => {
   // monitors in Kibana
   monitor.use({
     id: 'synthetics-replicator-monitor-github-link',
-    schedule: 10,
+    schedule: 1,
   });
 
   before(async () => {
