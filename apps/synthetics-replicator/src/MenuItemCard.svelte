@@ -1,13 +1,23 @@
 <script lang='ts'>
 	import 'iconify-icon';
+    import { createEventDispatcher } from 'svelte';
+
     import { allergenIconMapping, MenuItem } from './models';
 
 	export let menuItem: MenuItem;
+
+    const dispatchAddToCart = createEventDispatcher();
+
+    function addItemToCart() {
+        dispatchAddToCart('add-item');
+    }
 </script>
 
 <div class='menu-item-card' data-testid='menu-item-card'>
 	<!-- svelte-ignore a11y-img-redundant-alt -->
 	<img src={menuItem.imagePath} alt='Menu Item Image'/>
+    <iconify-icon class='add-item-button' icon='material-symbols:add-circle-rounded' data-testid='add-item-button'
+        width='32' height='32' on:click={addItemToCart} on:keyup={addItemToCart}></iconify-icon>
     <div class='menu-item-details'>
         <h2 title='{menuItem.name}'>{menuItem.name}</h2>
         <h4>£{menuItem.price}</h4>
@@ -51,6 +61,15 @@
 
         margin: auto;
     } 
+
+    .add-item-button {
+        z-index: 1;
+        position: absolute;
+        margin-left: 11.5rem;
+        margin-top: 0.5rem;
+        color: #ececec;
+        cursor: pointer;
+    }
 
     .format-icons {
         display: flex;

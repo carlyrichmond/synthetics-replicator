@@ -9,7 +9,7 @@ journey('Replicator order flow', ({ page, params }) => {
   });
 
   before(async () => {
-    await page.goto(params.url);;
+    await page.goto(params.url);
   });
 
   after(async() => {
@@ -34,5 +34,22 @@ journey('Replicator order flow', ({ page, params }) => {
 
     const menuTiles = await page.getByTestId('menu-item-card');
     expect(await menuTiles.count()).toBeGreaterThan(2);
+  });
+
+  step('assert adding to order', async () => {
+    await page.goto(`${params.url}/order`);
+
+    const addItemButtons = await page.getByTestId('add-item-button');
+    expect(await addItemButtons.count()).toBeGreaterThan(10);
+
+    const cartCount = await page.getByTestId('cart-count-label');
+    expect(await cartCount.innerText()).toBe('0');
+
+    await addItemButtons.first().click();
+    expect(await cartCount.innerText()).toBe('1');
+
+    await addItemButtons.nth(4).click();
+    await addItemButtons.last().click();
+    expect(await cartCount.innerText()).toBe('3');
   });
 });

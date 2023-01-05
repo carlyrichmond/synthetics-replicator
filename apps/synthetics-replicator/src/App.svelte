@@ -35,7 +35,9 @@
 		<Route path='/'>
 			<HomeSplash on:place-order={placeOrder}></HomeSplash>
 		</Route>
-		<Route path='order' component='{ReplicatorList}'/>
+		<Route path='order'>
+			<ReplicatorList on:increment-cart={updateCart}/>
+		</Route>
 	</Router>
 </main>
 

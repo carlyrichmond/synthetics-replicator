@@ -6,7 +6,7 @@
 
 <div class='shopping-cart'>
 	<iconify-icon class='cart-icon' icon='ic:round-shopping-basket' width='36' height='36' />
-    <span class='badge badge-warning' id='cart-count-label'>{currentCartCount}</span>
+    <span class='badge badge-warning' data-testid='cart-count-label' id='cart-count-label'>{currentCartCount}</span>
 </div>
 
 <style>
