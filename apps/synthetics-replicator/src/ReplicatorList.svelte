@@ -20,8 +20,6 @@
 
 	div.menu {
 		width: 100%;
-		height: 90vh;
-		background-color: rbg(0, 0, 0, 1);
 	}
 
 	div.item-list {
