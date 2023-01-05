@@ -51,6 +51,10 @@
 		height: 6vh;
 	}
 
+	main {
+		background-image: url('/replicator-splash.jpg');
+	}
+
 	#replicator-logo {
 		width: 4rem;
 		height: 3.5rem;

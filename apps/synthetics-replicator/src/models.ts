@@ -8,7 +8,7 @@ export enum ItemCategory {
     ALCOHOLIC_BEVERAGES = 'Alcoholic Beverages'
 } 
 
-export type Allergens = 'Celery' | 'Gluten' | 'Crustaceans' | 'Eggs' | 'Fish' | 'Lupin' | 'Milk' | 'Molluscs' | 'Mustard' | 'Nuts' | 'Peanuts' | 'Sesame' | 'Sulphites';
+export type Allergens = 'Celery' | 'Gluten' | 'Crustaceans' | 'Eggs' | 'Fish' | 'Milk' | 'Molluscs' | 'Nuts' | 'Peanuts';
 
 export type MenuItem = {
     name: string;
@@ -20,6 +20,18 @@ export type MenuItem = {
     spicy: boolean;
     imagePath?: string;
 }
+
+export const allergenIconMapping = { 
+    'Celery': 'simple-icons:celery',
+    'Gluten': 'mdi:gluten', 
+    'Crustaceans': 'fluent-emoji-high-contrast:lobster', 
+    'Eggs': 'tabler:eggs', 
+    'Fish': 'tabler:fish', 
+    'Milk': 'tabler:milk', 
+    'Molluscs': 'game-icons:mussel', 
+    'Nuts': 'lucide:nut', 
+    'Peanuts': 'fluent-emoji-high-contrast:peanuts' 
+};
 
 export const menuItems: MenuItem[] = [
     {
@@ -222,32 +234,33 @@ export const menuItems: MenuItem[] = [
 
 export function addImagePathToItem(item: MenuItem): MenuItem {
     let imageNo = 1;
+    const basePath = 'food-images/';
     switch (item.category) {
         case ItemCategory.ALCOHOLIC_BEVERAGES:
-            imageNo = generateRandomImagePostfix(2, 1);
-            item.imagePath = `drink${imageNo}.avif`;
+            imageNo = generateRandomImagePostfix(4, 1);
+            item.imagePath = `${basePath}drink${imageNo}.avif`;
             break;
         case ItemCategory.SOFT_DRINKS:
             imageNo = generateRandomImagePostfix(4, 3);
-            item.imagePath = `drink${imageNo}.avif`;
+            item.imagePath = `${basePath}drink${imageNo}.avif`;
             break;
         case ItemCategory.HOT_DRINKS:
-            item.imagePath = 'coffee.avif';
+            item.imagePath = `${basePath}coffee.avif`;
             break;
         case ItemCategory.ENTREES:
             imageNo = generateRandomImagePostfix(3, 1);
-            item.imagePath = `main${imageNo}.avif`;
+            item.imagePath = `${basePath}main${imageNo}.avif`;
             break;
         case ItemCategory.SOUPS:
-            item.imagePath = 'soup.avif';
+            item.imagePath = `${basePath}soup.avif`;
             break;
         case ItemCategory.SNACKS:
             imageNo = generateRandomImagePostfix(3, 1);
-            item.imagePath = `snacks${imageNo}.avif`;
+            item.imagePath = `${basePath}snacks${imageNo}.avif`;
             break;
         case ItemCategory.DESSERTS:
             imageNo = generateRandomImagePostfix(2, 1);
-            item.imagePath = `dessert${imageNo}.avif`
+            item.imagePath = `${basePath}dessert${imageNo}.avif`
             break;
     }
 

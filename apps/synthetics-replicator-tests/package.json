@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "npx @elastic/synthetics journeys",
+    "debug": "npx @elastic/synthetics journeys --debug",
     "push-local": "export NODE_ENV=production && npm run push",
     "push": "npx @elastic/synthetics push --auth $SYNTHETICS_API_KEY"
   },

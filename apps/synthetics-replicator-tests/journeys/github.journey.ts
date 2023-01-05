@@ -1,10 +1,10 @@
 import { after, before, journey, step, monitor, expect } from '@elastic/synthetics';
 
-journey('Replicator home', ({ page, params }) => {
+journey('Replicator GitHub navigation', ({ page, params }) => {
   // Only relevant for the push command to create
   // monitors in Kibana
   monitor.use({
-    id: 'synthetics-replicator-monitor',
+    id: 'synthetics-replicator-monitor-github-link',
     schedule: 10,
   });
 
@@ -20,25 +20,13 @@ journey('Replicator home', ({ page, params }) => {
     const header = await page.locator('h1');
     expect(await header.textContent()).toEqual('Replicatr');
 
-    const paragraph = await page.locator('data-testid=order-prompt');
+    const paragraph = await page.getByTestId('order-prompt');
     expect(await paragraph.textContent()).toContain('To seek out new food');
     expect(await paragraph.textContent()).toContain('To boldly eat');
   });
 
-  step('assert add to cart', async () => {
-    const cartCount = await page.locator('#cart-count-label');
-    expect(await cartCount.textContent()).toEqual('0');
-
-    const orderButton = await page.locator('data-testid=order-button');
-    await orderButton.click();
-    expect(await cartCount.textContent()).toEqual('1');
-
-    await orderButton.click();
-    expect(await cartCount.textContent()).toEqual('2');
-  });
-
   step('assert GitHub navigation', async () => {
-    const gitHubNav = await page.locator('data-testid=github-nav');
+    const gitHubNav = await page.getByTestId('github-nav');
     await gitHubNav.click();
 
     const url = page.url();

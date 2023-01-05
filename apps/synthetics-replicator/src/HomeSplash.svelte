@@ -30,7 +30,6 @@
 	div.splash {
 		width: 100%;
 		height: 90vh;
-		background-image: url('/replicator-splash.jpg');
 		margin: 0;
 		display: flex;
 		flex-direction: column;
