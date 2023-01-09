@@ -21,12 +21,12 @@ export default env => {
      */
     project: {
       id: 'synthetics-replicator-tests',
-      url: 'https://my-observability.kb.eu-west-2.aws.cloud.es.io:443',
+      url: 'https://793f58c8b0214b9dab2ddf62a985ddb5.eu-west-2.aws.cloud.es.io:443',
       space: 'default',
     },
   };
   if (env === 'production') {
-     config.params = { url: 'https://synthetics-replicator.netlify.app/' }
+    config.params = { url: 'https://synthetics-replicator.netlify.app/' }
   }
   return config;
 };
