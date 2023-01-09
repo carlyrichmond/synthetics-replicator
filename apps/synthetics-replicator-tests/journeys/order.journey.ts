@@ -5,6 +5,7 @@ journey('Replicator order flow', ({ page, params }) => {
   // monitors in Kibana
   monitor.use({
     id: 'synthetics-replicator-monitor-orders',
+    enabled: true,
     schedule: 1,
   });
 
