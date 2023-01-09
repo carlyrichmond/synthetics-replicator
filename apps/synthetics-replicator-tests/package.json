@@ -1,18 +1,17 @@
 {
   "name": "synthetics-replicator-tests",
   "version": "1.0.0",
-  "description": "Browse the directory structure here to see an example skeleton of an [Elastic Synthetics](https://www.elastic.co/observability/synthetic-monitoring) project. Make sure to [read the docs](https://www.elastic.co/guide/en/observability/current/monitor-uptime-synthetics.html) as well if you're unfamiliar with Elastic Synthetics.",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "npx @elastic/synthetics journeys",
-    "debug": "npx @elastic/synthetics journeys --debug",
-    "push-local": "export NODE_ENV=production && npm run push",
-    "push": "npx @elastic/synthetics push"
+    "push": "npx @elastic/synthetics push",
+    "push-local": "export NODE_ENV=production && npm run push"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@elastic/synthetics": "^1.0.0-beta.38"
+    "@elastic/synthetics": "^1.0.0-beta.39"
   }
 }
