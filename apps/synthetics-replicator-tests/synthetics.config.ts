@@ -12,7 +12,7 @@ export default env => {
      * Configure global monitor settings
      */
     monitor: {
-      schedule: 3,
+      schedule: 10,
       locations: ['united_kingdom'],
       privateLocations: [''],
     },
