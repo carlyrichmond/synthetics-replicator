@@ -17,13 +17,13 @@ journey('Replicator Order Journey', ({ page, params }) => {
   });
 
   step('assert move to order page', async () => {
-    const orderButton = await page.getByTestId('order-button');
+    const orderButton = await page.locator('data-testid=order-button');
     await orderButton.click();
     
     const url = page.url();
     expect(url).toContain('/order');
 
-    const menuTiles = await page.getByTestId('menu-item-card');
+    const menuTiles = await page.locator('data-testid=menu-item-card');
     expect(await menuTiles.count()).toBeGreaterThan(2);
   });
 });
