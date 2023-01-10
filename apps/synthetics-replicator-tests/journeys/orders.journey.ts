@@ -26,4 +26,19 @@ journey('Replicator Order Journey', ({ page, params }) => {
     const menuTiles = await page.locator('data-testid=menu-item-card');
     expect(await menuTiles.count()).toBeGreaterThan(2);
   });
+
+  step('assert adding to order', async () => {
+    const addItemButtons = await page.locator('data-testid=add-item-button');
+    expect(await addItemButtons.count()).toBeGreaterThan(10);
+
+    const cartCount = await page.locator('data-testid=cart-count-label');
+    expect(await cartCount.innerText()).toBe('0');
+
+    await addItemButtons.first().click();
+    expect(await cartCount.innerText()).toBe('1');
+
+    await addItemButtons.nth(4).click();
+    await addItemButtons.last().click();
+    expect(await cartCount.innerText()).toBe('3');
+  });
 });
