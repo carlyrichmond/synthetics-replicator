@@ -7,6 +7,7 @@ journey('Replicator Order Journey', ({ page, params }) => {
     id: 'synthetics-replicator-monitor',
     schedule: 10,
   });
+  
   step('launch application', async () => {
     await page.goto(params.url);
   });
