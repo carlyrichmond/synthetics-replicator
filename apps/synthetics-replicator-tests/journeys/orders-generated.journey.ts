@@ -1,6 +1,6 @@
 import { journey, step, monitor, expect } from '@elastic/synthetics';
 
-// Removed context and added params manuallyfor multi-environment support
+// Removed context and added params manually for multi-environment support
 journey('Recorded Order journey', async ({ page, params }) => {
 
     // Added monitor config manually without recorder
