@@ -1,7 +1,4 @@
 name: Elastic Synthetics With Svelte Replicator
-env:
-  NODE_ENV: production
-  SYNTHETICS_API_KEY: ${{ secrets.SYNTHETICS_API_KEY }}
 on:
   push:
     branches: [main, master]
@@ -30,6 +27,9 @@ jobs:
           junit_files: '**/junit-*.xml'
           check_name: Elastic Synthetics Tests
   push:
+    env:
+      NODE_ENV: production
+      SYNTHETICS_API_KEY: ${{ secrets.SYNTHETICS_API_KEY }}
     needs: test
     defaults:
       run:
