@@ -1,4 +1,4 @@
-import { journey, step, monitor, expect } from '@elastic/synthetics';
+import { journey, step, monitor, expect, before } from '@elastic/synthetics';
 
 journey('Replicator Order Journey', ({ page, params }) => {
   // Only relevant for the push command to create
@@ -7,8 +7,8 @@ journey('Replicator Order Journey', ({ page, params }) => {
     id: 'synthetics-replicator-monitor',
     schedule: 10,
   });
-  
-  step('launch application', async () => {
+
+  before(async ()=> {
     await page.goto(params.url);
   });
 
