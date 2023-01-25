@@ -1,4 +1,4 @@
-name: Elastic Synthetics With Svelte Replicator
+name: Push Workflow- Elastic Synthetics With Svelte Replicator
 on:
   push:
     branches: [main, master]
