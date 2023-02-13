@@ -46,6 +46,7 @@ blocks:
       jobs:
         - name: Verify Build
           commands:
+            - 'npm install '
             - npm run build
 promotions:
   - name: Production Deployment
