@@ -10,7 +10,7 @@ blocks:
       jobs:
         - name: Test
           commands:
+            - sem-version node 19.0.0
             - checkout
             - npm install
             - npm start &
-            - '"cd apps/synthetics-replicator-tests/journeys && npm install @elastic/synthetics && SYNTHETICS_JUNIT_FILE=''junit-synthetics.xml'' npx @elastic/synthetics . --reporter=junit"'
