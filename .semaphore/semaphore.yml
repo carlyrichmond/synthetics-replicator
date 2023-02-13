@@ -1,0 +1,15 @@
+version: v1.0
+name: Test MyApp
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu2004
+blocks:
+  - name: Test PR with Elastic Synthetics
+    task:
+      jobs:
+        - name: Test
+          commands:
+            - npm install
+            - npm start &
+            - '"cd ./apps/synthetics-replicator-tests/journeys && npm install @elastic/synthetics && SYNTHETICS_JUNIT_FILE=''junit-synthetics.xml'' npx @elastic/synthetics . --reporter=junit"'
