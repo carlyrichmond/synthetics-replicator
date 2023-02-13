@@ -1,0 +1,22 @@
+version: v1.0
+name: Pipeline 2
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu2004
+blocks:
+  - name: Production Deploy
+    task:
+      jobs:
+        - name: Deploy
+          commands:
+            - npm install netlify-cli -g
+            - cache restore website-build
+            - netlify deploy --dir=dist/apps/synthetics-replicator --prod
+        - name: Push Monitors
+          commands:
+            - cd apps/synthetics-replicator-tests
+            - npm install
+            - npm run push
+    run:
+      when: branch = 'master' AND result = 'passed'

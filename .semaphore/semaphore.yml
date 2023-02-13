@@ -1,14 +1,19 @@
 version: v1.0
-name: Test MyApp
+name: Test Synthetics Replicatr
 agent:
   machine:
     type: e1-standard-2
     os_image: ubuntu2004
+auto_cancel:
+  running:
+    when: branch != 'master'
+  queued:
+    when: branch = 'master'
 blocks:
-  - name: Run Synthetic Monitors
+  - name: Test
     task:
       jobs:
-        - name: Test
+        - name: Run Synthetic Monitors
           commands:
             - sem-version node 19.0.0
             - checkout
@@ -24,3 +29,26 @@ blocks:
             - cache store
             - '[[ -f junit-synthetics.xml ]] && test-results publish junit-synthetics.xml'
       env_vars: []
+    run:
+      when: branch = 'master'
+    dependencies:
+      - Build
+  - name: Build
+    dependencies: []
+    task:
+      prologue:
+        commands:
+          - cache restore
+      epilogue:
+        always:
+          commands:
+            - cache store website-build dist/apps/synthetics-replicator
+      jobs:
+        - name: Verify Build
+          commands:
+            - npm run build
+promotions:
+  - name: Production Deployment
+    pipeline_file: pipeline_2.yml
+    auto_promote:
+      when: branch = 'master' AND result = 'passed'
