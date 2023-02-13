@@ -23,9 +23,7 @@ blocks:
           commands:
             - cache store
             - '[[ -f junit-synthetics.xml ]] && test-results publish junit-synthetics.xml'
-      env_vars:
-        - name: SYNTHETICS_JUNIT_FILE
-          value: '''junit-synthetics.xml'''
+      env_vars: []
 after_pipeline:
   task:
     jobs:
