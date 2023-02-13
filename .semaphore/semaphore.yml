@@ -29,8 +29,6 @@ blocks:
             - cache store
             - '[[ -f junit-synthetics.xml ]] && test-results publish junit-synthetics.xml'
       env_vars: []
-    run:
-      when: branch = 'master'
     dependencies:
       - Build
   - name: Build
