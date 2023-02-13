@@ -22,7 +22,7 @@ blocks:
         always:
           commands:
             - cache store
-            - '[[ -f $SYNTHETICS_JUNIT_FILE ]] && test-results publish $SYNTHETICS_JUNIT_FILE'
+            - '[[ -f junit-synthetics.xml ]] && test-results publish junit-synthetics.xml'
       env_vars:
         - name: SYNTHETICS_JUNIT_FILE
           value: '''junit-synthetics.xml'''
