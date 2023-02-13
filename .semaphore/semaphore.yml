@@ -57,6 +57,7 @@ blocks:
       jobs:
         - name: Push Monitors
           commands:
+            - pwd
             - cd apps/synthetics-replicator-tests
             - npm install
             - npm run push
