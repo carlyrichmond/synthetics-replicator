@@ -22,10 +22,10 @@ blocks:
         always:
           commands:
             - cache store
-            - '[[ -f $SYNTHETICS_JUNIT_FILE ]] && test-results publish SYNTHETICS_JUNIT_FILE'
+            - '[[ -f $SYNTHETICS_JUNIT_FILE ]] && test-results publish $SYNTHETICS_JUNIT_FILE'
       env_vars:
         - name: SYNTHETICS_JUNIT_FILE
-          value: $HOME/.junit-synthetics.xml
+          value: '"$HOME/.junit-synthetics.xml"'
 after_pipeline:
   task:
     jobs:
