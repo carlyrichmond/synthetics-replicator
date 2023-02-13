@@ -31,4 +31,4 @@ after_pipeline:
     jobs:
       - name: Publish Test Results
         commands:
-          - test-results gen-pipeline-report
+          - test-results gen-pipeline-report --config $HOME/.junit-synthetics.xml
