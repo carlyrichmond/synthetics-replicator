@@ -22,6 +22,7 @@ blocks:
         always:
           commands:
             - cache store
+            - '[[ -f report.xml ]] && test-results publish report.xml'
       env_vars:
         - name: SYNTHETICS_JUNIT_FILE
           value: '''junit-synthetics.xml'''
