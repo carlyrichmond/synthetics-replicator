@@ -57,7 +57,8 @@ blocks:
       jobs:
         - name: Push Monitors
           commands:
-            - pwd
+            - sem-version node 19.0.0
+            - checkout
             - cd apps/synthetics-replicator-tests
             - npm install
             - npm run push
