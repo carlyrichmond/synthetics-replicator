@@ -46,7 +46,9 @@ blocks:
       jobs:
         - name: Verify Build
           commands:
-            - 'npm install '
+            - sem-version node 19.0.0
+            - checkout
+            - npm install
             - npm run build
 promotions:
   - name: Production Deployment
