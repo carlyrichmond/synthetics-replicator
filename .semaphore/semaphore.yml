@@ -25,7 +25,7 @@ blocks:
             - '[[ -f junit-synthetics.xml ]] && test-results publish junit-synthetics.xml'
       env_vars:
         - name: SYNTHETICS_JUNIT_FILE
-          value: '''junit-synthetics.xml'''
+          value: $HOME/.junit-synthetics.xml
 after_pipeline:
   task:
     jobs:
