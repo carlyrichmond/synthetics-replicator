@@ -14,7 +14,7 @@ blocks:
             - checkout
             - npm install
             - npm start &
-            - cd apps/synthetics-replicator-tests/journeys && npm install @elastic/synthetics && npx @elastic/synthetics . --reporter=junit
+            - cd apps/synthetics-replicator-tests/journeys && npm install @elastic/synthetics && SYNTHETICS_JUNIT_FILE='junit-synthetics.xml' npx @elastic/synthetics . --reporter=junit
       prologue:
         commands:
           - cache restore
@@ -22,11 +22,5 @@ blocks:
         always:
           commands:
             - cache store
-            - '[[ -f test-results/junit.xml ]] && test-results publish test-results/junit.xml'
+            - '[[ -f junit-synthetics.xml ]] && test-results publish junit-synthetics.xml'
       env_vars: []
-after_pipeline:
-  task:
-    jobs:
-      - name: Publish Test Results
-        commands:
-          - test-results gen-pipeline-report $SYNTHETICS_JUNIT_FILE
