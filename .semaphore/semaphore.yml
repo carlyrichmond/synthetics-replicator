@@ -25,3 +25,9 @@ blocks:
       env_vars:
         - name: SYNTHETICS_JUNIT_FILE
           value: '''junit-synthetics.xml'''
+after_pipeline:
+  task:
+    jobs:
+      - name: Publish Test Results
+        commands:
+          - test-results gen-pipeline-report
