@@ -14,3 +14,11 @@ blocks:
             - checkout
             - npm install
             - npm start &
+            - '"cd apps/synthetics-replicator-tests/journeys && npm install @elastic/synthetics && SYNTHETICS_JUNIT_FILE=''junit-synthetics.xml'' npx @elastic/synthetics . --reporter=junit"'
+      prologue:
+        commands:
+          - cache restore
+      epilogue:
+        always:
+          commands:
+            - cache store
