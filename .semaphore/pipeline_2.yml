@@ -1,5 +1,5 @@
 version: v1.0
-name: Pipeline 2
+name: Deploy App and Monitors
 agent:
   machine:
     type: e1-standard-2
@@ -10,9 +10,7 @@ blocks:
       jobs:
         - name: Deploy
           commands:
-            - npm install netlify-cli -g
-            - cache restore website-build
-            - netlify deploy --dir=dist/apps/synthetics-replicator --prod
+            - echo 'Deploy to Netlify goes here'
         - name: Push Monitors
           commands:
             - cd apps/synthetics-replicator-tests
