@@ -5,7 +5,7 @@ agent:
     type: e1-standard-2
     os_image: ubuntu2004
 blocks:
-  - name: Test PR with Elastic Synthetics
+  - name: Run Synthetic Monitors
     task:
       jobs:
         - name: Test
