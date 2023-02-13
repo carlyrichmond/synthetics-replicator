@@ -14,7 +14,7 @@ blocks:
             - checkout
             - npm install
             - npm start &
-            - '"cd apps/synthetics-replicator-tests/journeys && npm install @elastic/synthetics && npx @elastic/synthetics . --reporter=junit"'
+            - '"cd /apps/synthetics-replicator-tests/journeys && npm install @elastic/synthetics && npx @elastic/synthetics . --reporter=junit"'
       prologue:
         commands:
           - cache restore
