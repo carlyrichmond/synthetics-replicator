@@ -11,10 +11,5 @@ blocks:
         - name: Deploy
           commands:
             - echo 'Deploy to Netlify goes here'
-        - name: Push Monitors
-          commands:
-            - cd apps/synthetics-replicator-tests
-            - npm install
-            - npm run push
     run:
       when: branch = 'master' AND result = 'passed'
