@@ -1,0 +1,22 @@
+version: v1.0
+name: Pipeline 2
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu2004
+blocks:
+  - name: Production Deploy
+    task:
+      jobs:
+        - name: Deploy
+          commands:
+            - echo "Deploy goes here"
+        - name: Push Monitors
+          commands:
+            - sem-version node 19.0.0
+            - checkout
+            - cd apps/synthetics-replicator-tests
+            - npm install
+            - npm run push
+      secrets:
+        - name: SYNTHETICS_API_KEY

@@ -62,3 +62,10 @@ blocks:
             - cd apps/synthetics-replicator-tests
             - npm install
             - npm run push
+    skip:
+      when: 'true'
+promotions:
+  - name: Production Promotion
+    pipeline_file: pipeline_2.yml
+    auto_promote:
+      when: branch = 'master' AND result = 'passed'
