@@ -10,7 +10,9 @@ blocks:
       jobs:
         - name: Deploy
           commands:
-            - echo "Deploy goes here"
+            - npm install netlify-cli -g
+            - cache restore website-build
+            - netlify deploy --dir=dist/apps/synthetics-replicator --prod
         - name: Push Monitors
           commands:
             - sem-version node 19.0.0
@@ -20,3 +22,4 @@ blocks:
             - npm run push
       secrets:
         - name: SYNTHETICS_API_KEY
+        - name: netlify-authentication
