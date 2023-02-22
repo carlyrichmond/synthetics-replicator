@@ -20,10 +20,10 @@ Start synthetics-replicator app:
 
 ```
 npm install
-npm start
+nx serve synthetics-replicator
 ```
 
-Running the synthetics suite:
+Running the synthetics suite (requires a locally running synthetics-replicator app):
 
 ```
 cd apps/synthetics-replicator-tests

@@ -18,21 +18,21 @@ journey('Replicator Order Journey', ({ page, params }) => {
   });
 
   step('assert move to order page', async () => {
-    const orderButton = await page.locator('data-testid=order-button');
+    const orderButton = await page.getByTestId('order-button');
     await orderButton.click();
     
     const url = page.url();
     expect(url).toContain('/order');
 
-    const menuTiles = await page.locator('data-testid=menu-item-card');
+    const menuTiles = await page.getByTestId('menu-item-card');
     expect(await menuTiles.count()).toBeGreaterThan(2);
   });
 
   step('assert adding to order', async () => {
-    const addItemButtons = await page.locator('data-testid=add-item-button');
+    const addItemButtons = await page.getByTestId('add-item-button');
     expect(await addItemButtons.count()).toBeGreaterThan(10);
 
-    const cartCount = await page.locator('data-testid=cart-count-label');
+    const cartCount = await page.getByTestId('cart-count-label');
     expect(await cartCount.innerText()).toBe('0');
 
     await addItemButtons.first().click();
