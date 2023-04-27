@@ -1,6 +1,12 @@
 # Synthetics Replicator
 
-This sample futuristic libation order application showcases how to use a common test suite for e2e test suites run within CI pipelines that can also be used for Synthetic Monitoring. It is the main example showcased within the talk *Ctrl > Shift > Left > Right: Joining Dev and Support Forces Together Using e2e Testing and Synthetic Monitoring*. Details of the approach are also provided in the blog (Two sides of the same coin: Uniting testing and monitoring with Synthetic Monitoring)[https://www.elastic.co/blog/uniting-testing-and-monitoring-with-synthetic-monitoring].
+This sample futuristic libation order application showcases how to use a common test suite for e2e test suites run within CI pipelines that can also be used for Synthetic Monitoring. It is the main example showcased within the talks *Ctrl > Shift > Left > Right: Joining Dev and Support Forces Together Using e2e Testing and Synthetic Monitoring* and *Synthetic Monitoring and E2E Testing: 2 Sides of the Same Coin*. These talks have been given at several conferences and meetups, including:
+
+1. Front Endgineers
+2. (Devoxx UK 2023)[https://www.devoxx.co.uk/talk/?id=3469]
+3. (React Summit 2023)[https://reactsummit.com/]
+
+Details of the approach are also provided in the blog (Two sides of the same coin: Uniting testing and monitoring with Synthetic Monitoring)[https://www.elastic.co/blog/uniting-testing-and-monitoring-with-synthetic-monitoring].
 
 ![Synthetics Replicator Home Page](./docs/screenshots/replicator-home.png)
 
