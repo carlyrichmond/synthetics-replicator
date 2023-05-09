@@ -6,7 +6,7 @@ This sample futuristic libation order application showcases how to use a common 
 2. [Devoxx UK 2023](https://www.devoxx.co.uk/talk/?id=3469)
 3. [React Summit 2023](https://reactsummit.com/)
 
-Details of the approach are also provided in the blog (Two sides of the same coin: Uniting testing and monitoring with Synthetic Monitoring)[https://www.elastic.co/blog/uniting-testing-and-monitoring-with-synthetic-monitoring].
+Details of the approach are also provided in the blog [Two sides of the same coin: Uniting testing and monitoring with Synthetic Monitoring](https://www.elastic.co/blog/uniting-testing-and-monitoring-with-synthetic-monitoring).
 
 ![Synthetics Replicator Home Page](./docs/screenshots/replicator-home.png)
 
