@@ -14,14 +14,14 @@ export default env => {
     monitor: {
       schedule: 10,
       locations: ['united_kingdom'],
-      privateLocations: [''],
+      privateLocations: [],
     },
     /**
      * Project monitors settings
      */
     project: {
       id: 'synthetics-replicator-tests',
-      url: 'https://fe8f3eff95d246c6a166d76a9dff6090.uksouth.azure.elastic-cloud.com:443',
+      url: 'https://observability-deployment.kb.us-west2.gcp.elastic-cloud.com:443',
       space: 'default',
     },
   };
