@@ -23,6 +23,11 @@ The aim is to meet the objective of allowing developers, QA engineers, operation
 
 ## Running Locally
 
+Before running locally please ensure you have the following pre-requisites installed:
+
+1. [Nx global install](https://nx.dev/getting-started/installation#installing-nx-globally)
+2. [NPM](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
+
 Start synthetics-replicator app:
 
 ```
