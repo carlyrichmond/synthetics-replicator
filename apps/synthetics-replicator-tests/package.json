@@ -11,6 +11,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@elastic/synthetics": "^1.1.0"
+    "@elastic/synthetics": "^1.4.0"
   }
 }
