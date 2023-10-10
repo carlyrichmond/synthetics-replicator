@@ -60,6 +60,15 @@
       "options": {
         "vitestConfig": "apps/synthetics-replicator/vitest.config.ts"
       }
+    },
+    "e2e": {
+      "executor": "@nx/playwright:playwright",
+      "outputs": [
+        "{workspaceRoot}/dist/.playwright/apps/synthetics-replicator"
+      ],
+      "options": {
+        "config": "apps/synthetics-replicator/playwright.config.ts"
+      }
     }
   }
 }
