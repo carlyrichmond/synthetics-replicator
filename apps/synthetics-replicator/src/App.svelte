@@ -1,15 +1,21 @@
+<svelte:head>
+  <link href="https://fonts.googleapis.com/css2?family=Teko&display=swap" rel="stylesheet">
+</svelte:head>
 <script lang='ts'>
-	import { navigate, Link, Router, Route } from 'svelte-routing';
+	import { navigate, Router, Route } from 'svelte-routing';
 
 	import 'iconify-icon';
 	import Cart from './Cart.svelte';
 
 	import HomeSplash from './HomeSplash.svelte';
 	import ReplicatorList from './ReplicatorList.svelte';
+	import LoginButton from './login/LoginButton.svelte';
+	import LoginForm from './login/LoginForm.svelte';
 
 	export let url = '';
 
 	let src: string = '/replicator.png';
+	let loggedInUser: string;
 	let currentCartCount: number = 0;
 
 	function updateCart() {
@@ -28,7 +34,11 @@
 	<a href='/'>
 		<h1>Replicatr</h1>
 	</a>
-	<Cart {currentCartCount}/>
+
+	<div class='header-buttons'>
+		<LoginButton userFirstname={loggedInUser}/>
+		<Cart {currentCartCount}/>
+	</div>
 </header>
 <main>
 	<Router url='{url}'>
@@ -38,6 +48,9 @@
 		<Route path='order'>
 			<ReplicatorList on:increment-cart={updateCart}/>
 		</Route>
+		<Route path='login'>
+			<LoginForm bind:userFirstname={loggedInUser}/>
+		</Route>
 	</Router>
 </main>
 
@@ -46,6 +59,8 @@
 	header {
 		display: flex;
 		flex-direction: row;
+		align-content: space-between;
+
 		background-color: #454aa1;
 		padding: 1.5rem;
 		gap: 0.8rem;
@@ -54,7 +69,11 @@
 	}
 
 	main {
-		background-image: url('/replicator-splash.jpg');
+		/*background-image: url('/replicator-splash.jpg'); */
+		background: linear-gradient(109.5deg, rgb(13, 11, 136) 9.4%, rgb(86, 255, 248) 78.4%);
+		/*background-image: linear-gradient( 90.1deg,  rgba(84,212,228,1) 0.2%, rgba(68,36,164,1) 99.9% );
+		background-image: linear-gradient( 90.1deg,  rgba(84,212,228,1) 0.2%, rgba(176, 180, 245, 1),  15%,rgba(68,36,164,1) 99.9%);*/
+		height: auto;
 	}
 
 	#replicator-logo {
@@ -83,5 +102,13 @@
 		main {
 			max-width: none;
 		}
+	}
+
+	.header-buttons {
+		display: flex;
+		align-items: baseline;
+		gap: 1rem;
+
+		margin-left: auto;
 	}
 </style>

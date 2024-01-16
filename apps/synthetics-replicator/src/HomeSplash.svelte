@@ -1,7 +1,3 @@
-<svelte:head>
-  <link href="https://fonts.googleapis.com/css2?family=Teko&display=swap" rel="stylesheet">
-</svelte:head>
-
 <script lang='ts'>
 	import { createEventDispatcher } from 'svelte';
 
