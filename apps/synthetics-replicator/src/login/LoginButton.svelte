@@ -6,7 +6,12 @@
 	$: isLoggedIn = userFirstname?.length > 0;
 
     function goToLogin() {
-		navigate('/login', { replace: true });
+		if (!isLoggedIn) {
+			navigate('/login', { replace: true });
+			return;
+		}
+
+		navigate('/order', { replace: false });
 	}
 </script>
 	

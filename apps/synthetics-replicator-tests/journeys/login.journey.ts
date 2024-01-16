@@ -63,4 +63,13 @@ journey('Replicator Login Journey', ({ page, params }) => {
    const menuTiles = await page.getByTestId('menu-item-card');
    expect(await menuTiles.count()).toBeGreaterThan(0);
   });
+
+  step('assert unable to go to login page when signed in', async () => {
+    const loginButton = await page.getByTestId('account-button');
+    expect(loginButton).toContainText('Welcome');
+    await loginButton.click();
+    
+    const url = page.url();
+    expect(url).toContain('/order');
+  });
 });
