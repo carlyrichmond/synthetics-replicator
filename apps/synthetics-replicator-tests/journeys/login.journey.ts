@@ -38,12 +38,12 @@ journey('Replicator Login Journey', ({ page, params }) => {
    expect(submitButton).toBeDisabled();
 
    // Add credentials
-   const username = 'me@me.com';
+   const username = params.username;
    const usernameInput = page.getByTestId('username-input');
    usernameInput.fill(username)
    await expect(usernameInput).toHaveValue(username);
 
-   const password = 'Rand0mPa$$w0rd';
+   const password = params.password;
    const passwordInput = page.getByTestId('password-input');
    passwordInput.fill(password)
    await expect(passwordInput).toHaveValue(password);

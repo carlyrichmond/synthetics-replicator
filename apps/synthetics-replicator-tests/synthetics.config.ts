@@ -4,6 +4,8 @@ export default env => {
   const config: SyntheticsConfig = {
     params: {
       url: 'http://localhost:5173',
+      username: process.env.REPLICATR_USERNAME,
+      password: process.env.REPLICATR_PASSWORD,
     },
     playwrightOptions: {
       ignoreHTTPSErrors: false,
