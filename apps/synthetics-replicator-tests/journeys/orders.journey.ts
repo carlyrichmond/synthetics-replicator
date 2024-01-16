@@ -4,7 +4,7 @@ journey('Replicator Order Journey', ({ page, params }) => {
   // Only relevant for the push command to create
   // monitors in Kibana
   monitor.use({
-    id: 'synthetics-replicator-monitor',
+    id: 'synthetics-replicator-monitor-order',
     schedule: 10,
   });
 

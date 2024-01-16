@@ -1,23 +1,36 @@
-import { test, expect } from '@playwright/test';
+import { journey, step, monitor, expect, before } from '@elastic/synthetics';
 
-test('assert go to login page', async ({ page }) => {
-  await page.goto('/');
+journey('Replicator Login Journey', ({ page, params }) => {
+  // Only relevant for the push command to create
+  // monitors in Kibana
+  monitor.use({
+    id: 'synthetics-replicator-monitor-login',
+    schedule: 10,
+  });
 
-  const loginButton = await page.getByTestId('account-button');
-  expect(loginButton).toHaveText('Login');
-  await loginButton.click();
-  
-  const url = page.url();
-  expect(url).toContain('/login');
+  before(async ()=> {
+    await page.goto(params.url);
+  });
 
-  const loginForm  = await page.getByTestId('login-form');
-  expect(loginForm).toBeDefined();
-});
+  step('assert home page loads', async () => {
+    const header = await page.locator('h1');
+    expect(await header.textContent()).toBe('Replicatr');
+  });
 
-test('assert manual login successful', async ({ page }) => {
-  await page.goto('/login');
+  step('assert go to login page', async () => {
+    const loginButton = await page.getByTestId('account-button');
+    expect(loginButton).toHaveText('Login');
+    await loginButton.click();
+    
+    const url = page.url();
+    expect(url).toContain('/login');
 
-  const loginForm  = await page.getByTestId('login-form');
+    const loginForm  = await page.getByTestId('login-form');
+    expect(loginForm).toBeDefined();
+  });
+
+  step('assert manual login successful', async () => {
+    const loginForm  = await page.getByTestId('login-form');
   expect(loginForm).toBeDefined();
 
    // Check submit button is disabled before entry
@@ -49,4 +62,5 @@ test('assert manual login successful', async ({ page }) => {
    // Ensure we have navigated to menu
    const menuTiles = await page.getByTestId('menu-item-card');
    expect(await menuTiles.count()).toBeGreaterThan(0);
+  });
 });
