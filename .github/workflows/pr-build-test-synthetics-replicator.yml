@@ -15,9 +15,9 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 18
-      - run: npm ci
+      - run: npm install
       - run: npm start &
-      - run: "npx @elastic/synthetics . --reporter=junit"
+      - run: "npm install @elastic/synthetics && npx @elastic/synthetics . --reporter=junit"
         working-directory: ./apps/synthetics-replicator-tests/journeys
       - name: Publish Unit Test Results
         uses: EnricoMi/publish-unit-test-result-action@v2
