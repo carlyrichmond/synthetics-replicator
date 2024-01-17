@@ -61,7 +61,7 @@ journey('Replicator Login Journey', ({ page, params }) => {
 
     // Ensure we have navigated to menu
     const menuTiles = await page.getByTestId('menu-item-card');
-    expect(await menuTiles.count()).toBeGreaterThan(0);
+    expect(await menuTiles.count()).toBeGreaterThan(25);
   });
 
   step('assert unable to go to login page when signed in', async () => {
