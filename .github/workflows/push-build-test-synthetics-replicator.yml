@@ -31,7 +31,7 @@ jobs:
       SYNTHETICS_API_KEY: ${{ secrets.SYNTHETICS_API_KEY }}
       REPLICATR_USERNAME: ${{ secrets.REPLICATR_USERNAME }}
       REPLICATR_PASSWORD: ${{ secrets.REPLICATR_PASSWORD }}
-    #needs: test
+    needs: test
     defaults:
       run:
         working-directory: ./apps/synthetics-replicator-tests
