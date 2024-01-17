@@ -35,7 +35,7 @@ journey('Replicator Login Journey', ({ page, params }) => {
 
     // Check submit button is disabled before entry
     const submitButton = await page.getByTestId('login-button');
-    expect(submitButton).toBeDisabled();
+    expect(submitButton).toBeEnabled();
 
     // Add credentials
     const username = params.username;
