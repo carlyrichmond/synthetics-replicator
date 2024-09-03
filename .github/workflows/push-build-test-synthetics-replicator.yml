@@ -28,6 +28,8 @@ jobs:
   push:
     env:
       NODE_ENV: production
+      REPLICATR_USERNAME: ${{ secrets.REPLICATR_USERNAME }}
+      REPLICATR_PASSWORD: ${{ secrets.REPLICATR_PASSWORD }}
       SYNTHETICS_API_KEY: ${{ secrets.SYNTHETICS_API_KEY }}
     needs: test
     defaults:
