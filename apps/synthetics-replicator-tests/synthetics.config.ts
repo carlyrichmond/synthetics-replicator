@@ -28,7 +28,7 @@ export default env => {
     },
   };
   if (env === 'production') {
-    config.params = { url: 'https://synthetics-replicator.netlify.app/' }
+    config.params!.url = 'https://synthetics-replicator.netlify.app/';
   }
   return config;
 };
