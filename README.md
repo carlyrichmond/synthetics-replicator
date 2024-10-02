@@ -6,6 +6,13 @@ This sample futuristic libation order application showcases how to use a common 
 2. [Devoxx UK 2023](https://www.devoxx.co.uk/talk/?id=3469)
 3. [React Summit 2023](https://reactsummit.com/)
 4. [SRE Day](https://sreday.com/)
+5. [London.js](https://www.meetup.com/london-js/events/302516278/?eventOrigin=group_events_list)
+
+It will appear at the following upcoming sessions:
+
+6. [Devoxx Belgium](https://devoxx.be/talk/synthetic-monitoring-and-e2e-testing-2-sides-of-the-same-coin/)
+7. [All Day DevOps](https://www.alldaydevops.com/)
+8. [SRECon](https://www.usenix.org/conference/srecon24emea/presentation/richmond)
 
 Details of the approach are also provided in the blog [Two sides of the same coin: Uniting testing and monitoring with Synthetic Monitoring](https://www.elastic.co/blog/uniting-testing-and-monitoring-with-synthetic-monitoring).
 
