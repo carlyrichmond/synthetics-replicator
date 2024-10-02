@@ -14,7 +14,7 @@ It will appear at the following upcoming sessions:
 7. [All Day DevOps](https://www.alldaydevops.com/)
 8. [SRECon](https://www.usenix.org/conference/srecon24emea/presentation/richmond)
 
-Details of the approach are also provided in the blog [Two sides of the same coin: Uniting testing and monitoring with Synthetic Monitoring](https://www.elastic.co/blog/uniting-testing-and-monitoring-with-synthetic-monitoring).
+Details of the approach are also provided in the blog [Two sides of the same coin: Uniting testing and monitoring with Synthetic Monitoring](https://www.elastic.co/blog/uniting-testing-and-monitoring-with-synthetic-monitoring). An advanced example showing how to monitor OAuth authentication flows are available [in this Elastic Advent Calendar entry](https://discuss.elastic.co/t/dec-8th-2023-en-authentication-in-synthetic-monitoring-with-playwright-and-elastic-synthetics/347290).
 
 ![Synthetics Replicator Home Page](./docs/screenshots/replicator-home.png)
 
