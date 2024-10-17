@@ -6,6 +6,7 @@ export default env => {
       url: 'http://localhost:5173',
       username: process.env.REPLICATR_USERNAME,
       password: process.env.REPLICATR_PASSWORD,
+      isLocal: true
     },
     playwrightOptions: {
       ignoreHTTPSErrors: false,
@@ -29,6 +30,7 @@ export default env => {
   };
   if (env === 'production') {
     config.params!.url = 'https://synthetics-replicator.netlify.app/';
+    config.params!.isLocal = false;
   }
   return config;
 };
