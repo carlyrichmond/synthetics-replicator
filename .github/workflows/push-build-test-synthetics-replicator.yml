@@ -11,10 +11,10 @@ jobs:
       SYNTHETICS_JUNIT_FILE: junit-synthetics.xml      
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version: 20
       - run: npm ci
       - run: npm start &
       - run: "npm install @elastic/synthetics && npx @elastic/synthetics . --reporter=junit"
@@ -37,9 +37,9 @@ jobs:
         working-directory: ./apps/synthetics-replicator-tests
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version: 20
       - run: npm ci
       - run: npm run push
