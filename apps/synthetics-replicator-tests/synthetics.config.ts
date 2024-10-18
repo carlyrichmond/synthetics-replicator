@@ -1,4 +1,5 @@
-import type { SyntheticsConfig } from '@elastic/synthetics';
+import { SyntheticsConfig } from '@elastic/synthetics';
+import { devices } from "playwright-chromium"
 
 export default env => {
   const config: SyntheticsConfig = {
@@ -10,6 +11,7 @@ export default env => {
     },
     playwrightOptions: {
       ignoreHTTPSErrors: false,
+      ...devices['Desktop Chrome']
     },
     /**
      * Configure global monitor settings
