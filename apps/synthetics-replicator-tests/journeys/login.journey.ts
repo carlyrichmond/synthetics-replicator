@@ -5,7 +5,7 @@ journey('Replicator Login Journey', ({ page, params }) => {
   // monitors in Kibana
   monitor.use({
     id: 'synthetics-replicator-monitor-login',
-    schedule: 10,
+    schedule: 30,
   });
 
   before(async () => {
