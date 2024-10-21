@@ -1,5 +1,5 @@
 import { SyntheticsConfig } from '@elastic/synthetics';
-import { devices } from "playwright-chromium"
+import { devices } from "playwright-chromium";
 
 export default env => {
   const config: SyntheticsConfig = {
