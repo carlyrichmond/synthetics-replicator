@@ -17,7 +17,7 @@ jobs:
           node-version: 20
       - run: npm ci
       - run: npm start &
-      - run: "npm install @elastic/synthetics && npm run test --reporter=junit"
+      - run: "npm install @elastic/synthetics && npx @elastic/synthetics . --reporter=junit"
         working-directory: ./apps/synthetics-replicator-tests/journeys
       - name: Publish Unit Test Results
         uses: EnricoMi/publish-unit-test-result-action@v2
