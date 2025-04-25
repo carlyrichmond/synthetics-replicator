@@ -26,7 +26,7 @@ export default env => {
      */
     project: {
       id: 'synthetics-replicator-tests',
-      url: 'https://fe8f3eff95d246c6a166d76a9dff6090.uksouth.azure.elastic-cloud.com:443',
+      url: process.env.ELASTIC_DEPLOYMENT || 'http://localhost:443',
       space: 'default',
     },
   };
