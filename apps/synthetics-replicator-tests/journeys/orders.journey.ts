@@ -5,7 +5,7 @@ journey('Replicator Order Journey', ({ page, params }) => {
   // monitors in Kibana
   monitor.use({
     id: 'synthetics-replicator-monitor-order',
-    schedule: 20,
+    schedule: 3,
   });
 
   before(async ()=> {
