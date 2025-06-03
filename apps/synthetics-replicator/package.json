@@ -1,4 +1,7 @@
 {
   "name": "synthetics-replicator",
-  "version": "0.0.1"
+  "version": "0.0.1",
+  "dependencies": {
+    "@elastic/synthetics": "^1.18.1"
+  }
 }
